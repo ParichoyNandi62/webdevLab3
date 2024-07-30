@@ -185,3 +185,7 @@ overflow: hidden;
 .carousel-control-next:hover {
   opacity: 1;
 }
+
+.max{
+  display: none;
+}
