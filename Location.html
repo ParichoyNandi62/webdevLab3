@@ -32,9 +32,12 @@
 </nav>
   <div class="glass" style="width: 100%;">
     <div class="text-reflection" style="padding-bottom: 10px;">
-      <h2 class="text-light"><strong>Location</strong></h2>
+      <h2 class="text-light"><strong>Course Detail</strong></h2>
     </div>
-        
+    <div id="map" style="width: 100%; height: 400px;"></div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#googleMapModal" style="margin-top:10px;margin-left: 45%;">
+        Open Google Map
+      </button>   
       
 <div id="textCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-top: 30px; margin-bottom: 50px; margin-left: 20%; margin-right: 20%;">
     <div class="carousel-inner">
@@ -67,7 +70,27 @@
 
 
 
-
+  
+<div class="modal fade" id="googleMapModal" tabindex="-1" aria-labelledby="googleMapModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="googleMapModalLabel">Google Map</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.638303913433!2d88.36669941449098!3d22.833299985050755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277c9b7627e9d%3A0x2c9c7f0f5f5f5f5f!2sHabra%2C%20West%20Bengal%2C%20India!5e0!3m2!1sen!2sus!4v1627554373458!5m2!1sen!2sus"
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
   
 
 <footer class="footer mt-auto" style="height: 200px;width: 100%; padding-top: 50px;">
@@ -93,3 +116,11 @@
 </footer>
 </body>
 </html>
+<script>
+    var map = L.map('map').setView([22.8333, 88.3667], 13); // Set the initial map view to Habra, West Bengal, India
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+      subdomains: ['a', 'b', 'c']
+    }).addTo(map);
+    var marker = L.marker([22.8333, 88.3667]).addTo(map); // Add a marker to the map
+  </script>
